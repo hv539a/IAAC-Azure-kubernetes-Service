@@ -16,15 +16,15 @@ steps:
     terraformVersion: '0.12.28'
 - task: TerraformCLI@0
   inputs:
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/hv539a/IAAC-Azure-kubernetes-Service
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
-    backendType: 'azurerm'
-    backendServiceArm: 'azure-resource-manager-service-connection'
-    ensureBackend: true
-    backendAzureRmResourceGroupName: 'terraform-backend-rg'
-    backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'storageaccountfluxcd'
-    backendAzureRmContainerName: 'storageaccountfluxcdgitops'
-    backendAzureRmKey: 'kubernetes-fluxcdpoc.tfstate'
+  command: 'init'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/hv539a/IAAC-Azure-kubernetes-Service
+  commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
+  backendType: 'azurerm'
+  backendServiceArm: 'azure-resource-manager-service-connection'
+  ensureBackend: true
+  backendAzureRmResourceGroupName: 'terraform-backend-rg'
+  backendAzureRmResourceGroupLocation: 'westeurope'
+  backendAzureRmStorageAccountName: 'storageaccountfluxcd'
+  backendAzureRmContainerName: 'storageaccountfluxcdgitops'
+  backendAzureRmKey: 'kubernetes-fluxcdpoc.tfstate'
 
