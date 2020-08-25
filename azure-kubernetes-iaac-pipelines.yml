@@ -14,6 +14,7 @@ steps:
 - task: TerraformInstaller@0
   inputs:
     terraformVersion: '0.12.28'
+    displayName: Install Terraform
 - task: TerraformCLI@0
   inputs:
     command: 'init'
