@@ -6,14 +6,14 @@ pool:
 
 steps:
 - script: echo K8s Terraform Azure!
-  displayName: 'Run a one-line script'
-  checkout: self
+  displayName: 'Run a one-line script'  
 - task: DownloadSecureFile@1
   name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
 - task: TerraformCLI@0
   displayName: Install Terraform
+    checkout: self
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/C:\Users\40102503\Desktop\AKS-GitOps\Terraform IaaC AKS'
