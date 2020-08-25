@@ -13,7 +13,7 @@ steps:
     secureFile: 'azure_rsa.pub'
 - task: TerraformInstaller@0
   inputs:
-    terraformVersion: 'latest'
+    terraformVersion: 'v0.12.28'
 
 - task: TerraformCLI@0
   inputs:
