@@ -11,12 +11,13 @@ steps:
   name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: '0.12.28'
 - task: TerraformCLI@0
-  displayName: Install Terraform
-    checkout: self
   inputs:
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/C:\Users\40102503\Desktop\AKS-GitOps\Terraform IaaC AKS'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/hv539a/IAAC-Azure-kubernetes-Service
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
