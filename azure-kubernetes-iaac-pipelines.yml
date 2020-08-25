@@ -15,7 +15,7 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(Build.SourcesDirectory)/'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
+   # commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     ensureBackend: true
@@ -24,4 +24,12 @@ steps:
     backendAzureRmStorageAccountName: 'storageaccountfluxcd'
     backendAzureRmContainerName: 'storageaccountfluxcdgitops'
     backendAzureRmKey: 'kubernetes-fluxcdpoc.tfstate'
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(Build.SourcesDirectory)/'
+    environmentServiceName: 'azure-resource-manager-service-connection'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.securefilePath)'
+    
 
